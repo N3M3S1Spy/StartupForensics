@@ -1,6 +1,3 @@
-Hier ist die `README.md`-Datei für den `scripts`-Ordner, die die Funktionen der Skripte erklärt und Anweisungen zum Ausführen enthält:  
-
-```markdown
 # Scripts Documentation
 
 Dieser Ordner enthält PowerShell- und Batch-Skripte, die für die Analyse, Bereinigung und Überwachung von verdächtigen Aktivitäten auf einem Windows-System entwickelt wurden. Die Skripte sind darauf ausgelegt, Autostart-Einträge, Registrierungswerte und geplante Aufgaben zu prüfen und zu bereinigen.
