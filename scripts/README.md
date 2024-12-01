@@ -6,18 +6,18 @@ Dieser Ordner enthält PowerShell- und Batch-Skripte, die für die Analyse, Bere
 
 ## Übersicht der Skripte
 
-### 1. **cleanup_registry.ps1**
+### 1. **advanced_cleanup_registry.ps1**
 - **Beschreibung**:  
-  Dieses PowerShell-Skript durchsucht die Windows-Registrierung nach verdächtigen Einträgen in gängigen Autostart-Bereichen und bietet die Möglichkeit, diese zu entfernen.
+  Ein fortschrittliches PowerShell-Skript, das umfassende Bereinigungsaufgaben in der Registrierung durchführt und dabei modernste Techniken anwendet.
 - **Funktionen**:
-  - Identifiziert verdächtige Registry-Einträge basierend auf einer vorgegebenen Liste.
-  - Erstellt ein Backup der betroffenen Registry-Schlüssel.
-  - Entfernt unerwünschte Einträge.
+  - Automatisierte Suche nach Anomalien in Autostart-Bereichen.
+  - Sicherungen der Registrierung vor Änderungen.
+  - Optimierte Bereinigung auf Grundlage von Sicherheitsrichtlinien.
 - **Anwendung**:
   ```powershell
-  powershell -ExecutionPolicy Bypass -File cleanup_registry.ps1
+  powershell -ExecutionPolicy Bypass -File advanced_cleanup_registry.ps1
   ```
-- **Empfehlung**: Führen Sie das Skript mit Administratorrechten aus, um vollständigen Zugriff auf die Registrierung zu haben.
+- **Hinweis**: Dieses Skript ist für fortgeschrittene Benutzer gedacht und sollte mit Vorsicht verwendet werden.
 
 ---
 
@@ -47,21 +47,6 @@ Dieser Ordner enthält PowerShell- und Batch-Skripte, die für die Analyse, Bere
   example.bat
   ```
 - **Empfehlung**: Passen Sie das Skript an Ihre spezifischen Bedürfnisse an, bevor Sie es ausführen.
-
----
-
-### 4. **advanced_cleanup_registry.ps1**
-- **Beschreibung**:  
-  Ein fortschrittliches PowerShell-Skript, das umfassende Bereinigungsaufgaben in der Registrierung durchführt und dabei modernste Techniken anwendet.
-- **Funktionen**:
-  - Automatisierte Suche nach Anomalien in Autostart-Bereichen.
-  - Sicherungen der Registrierung vor Änderungen.
-  - Optimierte Bereinigung auf Grundlage von Sicherheitsrichtlinien.
-- **Anwendung**:
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File advanced_cleanup_registry.ps1
-  ```
-- **Hinweis**: Dieses Skript ist für fortgeschrittene Benutzer gedacht und sollte mit Vorsicht verwendet werden.
 
 ---
 
