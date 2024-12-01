@@ -6,7 +6,7 @@
 ---
 
 ## 📂 Inhaltsverzeichnis
-1. [Ziele](#ziele)
+1. [Ziele](#Ziele)
 2. [Funktionen](#funktionen)
 3. [Installation](#installation)
 4. [Anleitungen und Tools](#anleitungen-und-tools)
