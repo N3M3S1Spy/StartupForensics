@@ -1,0 +1,88 @@
+{
+  "suspicious_registry_keys": [
+    {
+      "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "name": "SystemProcess",
+      "description": "Dieser Schlüssel enthält Programme, die beim Systemstart automatisch ausgeführt werden. Oftmals wird er von Malware verwendet, um schadhafte Programme bei jedem Booten zu starten.",
+      "suspicious_values": [
+        {
+          "name": "SystemProcess",
+          "value": "C:\\Windows\\System32\\malicious.exe",
+          "reason": "Verdächtiger Prozess, der oft von Malware verwendet wird."
+        }
+      ]
+    },
+    {
+      "key": "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "name": "Autostart",
+      "description": "Enthält Programme, die beim Start des Benutzers automatisch ausgeführt werden. Wird häufig von schadhafter Software zur permanenten Ausführung verwendet.",
+      "suspicious_values": [
+        {
+          "name": "MaliciousApp",
+          "value": "C:\\Program Files\\MaliciousApp\\malicious.exe",
+          "reason": "Die Anwendung wird ohne Zustimmung des Benutzers gestartet und könnte eine unerwünschte Anwendung oder Malware sein."
+        }
+      ]
+    },
+    {
+      "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+      "name": "NoViewOnDrive",
+      "description": "Dieser Schlüssel verhindert das Anzeigen von Festplatten und anderen Laufwerken im Datei-Explorer. Malware kann diesen Schlüssel verwenden, um die Sichtbarkeit von infizierten Laufwerken zu verbergen.",
+      "suspicious_values": [
+        {
+          "name": "NoViewOnDrive",
+          "value": "0x000000FF",
+          "reason": "Versteckt Laufwerke und könnte ein Anzeichen für Malware oder eine bösartige Anwendung sein."
+        }
+      ]
+    },
+    {
+      "key": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\SafeBoot",
+      "name": "Minimal",
+      "description": "Dieser Schlüssel regelt den Startmodus für Windows im abgesicherten Modus. Malware kann versuchen, diesen Schlüssel zu manipulieren, um im abgesicherten Modus auszuführen.",
+      "suspicious_values": [
+        {
+          "name": "MalwareSafeBoot",
+          "value": "C:\\Windows\\System32\\malware.exe",
+          "reason": "Wenn Malware im abgesicherten Modus gestartet wird, könnte dies ein Hinweis auf versuchte Verschleierung sein."
+        }
+      ]
+    },
+    {
+      "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+      "name": "Userinit",
+      "description": "Dieser Schlüssel gibt den Startprozess für das Benutzerkonto an. Wird oft von Malware missbraucht, um sich selbst bei der Benutzeranmeldung zu starten.",
+      "suspicious_values": [
+        {
+          "name": "Userinit",
+          "value": "C:\\Windows\\System32\\userinit.exe, C:\\Windows\\System32\\malicious.dll",
+          "reason": "Die Modifikation dieses Werts kann auf Malware hindeuten, die bei der Anmeldung zusätzliche schadhafte Prozesse startet."
+        }
+      ]
+    },
+    {
+      "key": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+      "name": "UnwantedApplication",
+      "description": "Dieser Schlüssel listet installierte Programme auf. Malware kann versucht haben, einen legitimen Eintrag zu fälschen oder den Namen von Programmen zu verstecken.",
+      "suspicious_values": [
+        {
+          "name": "UnwantedApplication",
+          "value": "C:\\Program Files\\MaliciousApp\\malicious.exe",
+          "reason": "Gefälschte oder unerwünschte Programme, die in der Registry eingetragen sind."
+        }
+      ]
+    },
+    {
+      "key": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services",
+      "name": "MaliciousService",
+      "description": "Dient der Konfiguration von Systemdiensten. Malware kann versuchen, ihre eigenen Dienste zu erstellen, um bei jedem Start des Systems aktiv zu bleiben.",
+      "suspicious_values": [
+        {
+          "name": "MaliciousService",
+          "value": "C:\\Windows\\System32\\maliciousservice.exe",
+          "reason": "Ein unbekannter Dienst, der verdächtig erscheinen kann und in vielen Fällen mit Malware in Verbindung steht."
+        }
+      ]
+    }
+  ]
+}
