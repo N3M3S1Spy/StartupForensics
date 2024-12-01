@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SuspiciousTasks>
+    <Task>
+        <Name>MaliciousTask1</Name>
+        <Description>Diese Aufgabe wurde erstellt, um eine schadhafte Datei beim Systemstart auszuführen.</Description>
+        <Trigger>
+            <Type>AtStartup</Type>
+            <Description>Startet bei jedem Systemstart.</Description>
+        </Trigger>
+        <Action>
+            <Type>RunProgram</Type>
+            <Program>C:\Windows\System32\malicious.exe</Program>
+            <Arguments/>
+            <StartIn>C:\Windows\System32</StartIn>
+        </Action>
+        <Reason>Diese Aufgabe wird von Malware verwendet, um sich bei jedem Systemstart auszuführen.</Reason>
+    </Task>
+
+    <Task>
+        <Name>MaliciousTask2</Name>
+        <Description>Wird verwendet, um einen schadhaften Prozess regelmäßig auszuführen.</Description>
+        <Trigger>
+            <Type>OnSchedule</Type>
+            <Description>Wird täglich um 03:00 Uhr ausgeführt.</Description>
+            <Time>03:00:00</Time>
+        </Trigger>
+        <Action>
+            <Type>RunProgram</Type>
+            <Program>C:\Program Files\MaliciousApp\malicious.exe</Program>
+            <Arguments/>
+            <StartIn>C:\Program Files\MaliciousApp</StartIn>
+        </Action>
+        <Reason>Diese Aufgabe könnte dazu verwendet werden, schadhafte Programme regelmäßig auszuführen.</Reason>
+    </Task>
+
+    <Task>
+        <Name>SuspiciousUpdateTask</Name>
+        <Description>Verdächtige Aufgabe, die dazu verwendet wird, gefälschte Updates zu installieren.</Description>
+        <Trigger>
+            <Type>OnEvent</Type>
+            <Description>Wird bei einem bestimmten Ereignis ausgeführt.</Description>
+            <EventLog>
+                <LogName>System</LogName>
+                <EventID>12345</EventID>
+            </EventLog>
+        </Trigger>
+        <Action>
+            <Type>RunProgram</Type>
+            <Program>C:\Temp\update.exe</Program>
+            <Arguments/>
+            <StartIn>C:\Temp</StartIn>
+        </Action>
+        <Reason>Die Aufgabe ist möglicherweise Teil eines Angriffs, um gefälschte Updates zu installieren.</Reason>
+    </Task>
+
+    <Task>
+        <Name>MaliciousServiceCheck</Name>
+        <Description>Wird verwendet, um sicherzustellen, dass eine schadhafte Datei bei jedem Benutzerlogin gestartet wird.</Description>
+        <Trigger>
+            <Type>OnLogon</Type>
+            <Description>Wird bei jedem Benutzerlogin ausgeführt.</Description>
+        </Trigger>
+        <Action>
+            <Type>RunProgram</Type>
+            <Program>C:\Users\%username%\AppData\Roaming\malicious.exe</Program>
+            <Arguments/>
+            <StartIn>C:\Users\%username%\AppData\Roaming</StartIn>
+        </Action>
+        <Reason>Diese Aufgabe könnte versuchen, ein schadhafter Prozess bei jedem Benutzerlogin auszuführen.</Reason>
+    </Task>
+
+    <Task>
+        <Name>HiddenRATTask</Name>
+        <Description>Versteckte Remote-Administrationstool-Aufgabe, die ein schadhafter Prozess regelmäßig ausführt.</Description>
+        <Trigger>
+            <Type>OnIdle</Type>
+            <Description>Wird ausgeführt, wenn der Computer im Leerlauf ist.</Description>
+        </Trigger>
+        <Action>
+            <Type>RunProgram</Type>
+            <Program>C:\Windows\Temp\rat.exe</Program>
+            <Arguments/>
+            <StartIn>C:\Windows\Temp</StartIn>
+        </Action>
+        <Reason>Diese Aufgabe könnte Teil eines Remote-Access-Trojaners (RAT) sein, um den Computer im Hintergrund zu steuern.</Reason>
+    </Task>
+
+    <Task>
+        <Name>SuspiciousCleanupTask</Name>
+        <Description>Verdächtige Aufgabe, die dazu verwendet wird, Logs oder andere Daten zu löschen, um Spuren zu verwischen.</Description>
+        <Trigger>
+            <Type>OnEvent</Type>
+            <Description>Wird bei einem bestimmten Ereignis ausgelöst.</Description>
+            <EventLog>
+                <LogName>Application</LogName>
+                <EventID>56789</EventID>
+            </EventLog>
+        </Trigger>
+        <Action>
+            <Type>RunProgram</Type>
+            <Program>C:\Windows\System32\cmd.exe</Program>
+            <Arguments>/C del /F /Q C:\Windows\System32\*.log</Arguments>
+            <StartIn>C:\Windows\System32</StartIn>
+        </Action>
+        <Reason>Diese Aufgabe könnte von einem Angreifer verwendet werden, um Beweismittel zu löschen oder Logs zu entfernen.</Reason>
+    </Task>
+</SuspiciousTasks>
