@@ -33,7 +33,7 @@
 ## 🚀 Installation
 Klonen des Repositories:
 ```bash
-git clone https://github.com/dein-benutzername/StartupForensics.git
+git clone https://github.com/N3M3S1Spy/StartupForensics.git
 ```
 
 Navigiere in das Verzeichnis:
